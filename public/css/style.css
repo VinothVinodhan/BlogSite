@@ -1,0 +1,173 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color: rgb(5, 99, 99);
+	display: flex;
+	flex-direction: column;
+	height: 500%;
+	/* flex-basis: 500px; */
+}
+
+a{
+	text-decoration: none;
+	color: whitesmoke;
+}
+.header{
+    display: grid;
+    grid-area: 1/1/2/2;
+    display: block;
+    height: 100%;
+    position: relative;
+	width: 100%;
+}
+
+.headerTitles{
+    background: rgb(226, 233, 250);
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    flex-basis: 100;
+    text-align: center;
+}
+
+.name{
+    margin: 3px;
+    padding: 2px;
+    font-weight: bold;
+    font-size: xx-large;
+    flex-grow: 0.7;
+}
+
+
+.subName{
+    margin: 0 auto;
+    font-size: small;
+    font-weight: lighter;
+    line-height: 1.3em;
+    flex-grow: 0.3;
+}
+
+.nav_section{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    background:rgb(99,137,225);
+    width: auto;
+    flex-basis: 200px;
+    
+}
+._navLink1{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    height: 90%;
+}
+
+.empty{
+    /* flex-grow: 1; */
+    display: flex;
+}
+
+._navLink2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-grow: 1;
+    height: 90%;    
+}
+
+._navLink2_Sub{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    height: 90%;   
+}
+
+.home_header {
+	margin: 0 auto;
+	padding: 15px;
+	font-family: sans-serif;
+    font-weight: 600;
+	font-size: 32px;
+	text-align: center;
+}
+
+#articles{
+	margin: 0 auto;
+	padding: 20px;
+	font-weight: 200;
+	font-size: medium;
+	width: 18rem;
+	display: flex;
+}
+.article_title{
+	margin: 0 auto;
+	padding: 20px;
+	font-weight: 200;
+	font-size: 12px;
+} 
+
+.article_section{
+	/* width: 600px;
+    height: 100px; */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	align-content: center;
+	margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 6px;
+    margin-left: 5px;
+	/* padding: 5px; */
+	/* flex-grow: 2; */
+	flex-grow: 2;
+}
+
+.main_page{
+    background: green;
+    margin-top: 3px;
+}
+
+.row{
+    margin: 1px;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog</title>
+    </head>
+
+    <body>
+        <h1>This is HTML Edit Article Page</h1>
+        <!-- edit means post, PUT is HTTP method to update something in server -->
+        <form action="/articles/<%=article.id%>?_method=PUT" method="POST">
+            <!-- we will be including _form_fields.ejs which contains only the input fields which are common for new & edit page -->
+            <%- include('_form_fields') %>
+        </form>
+    </body>
+
+</html>

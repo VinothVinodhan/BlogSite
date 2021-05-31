@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to Vinodhan Blogs</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body class="body">
+        <header class="header">
+            <div class="_1">
+                <div class="headerTitles">
+                    <span class="name">
+                        <p class="">Vinodhan Blogs</p>
+                    </span>
+                    <span class="subName">
+                        <p>A Personal Blog</p>
+                    </span>
+                </div>
+                <section class="nav_section">
+                    <div class="_navLink1">
+                        <div><a class="home_link" href="">HOME</a></div>
+                        <div><a href="" class="about_link">ABOUT</a></div>
+                    </div>
+                    <div class="empty"></div>
+                    <div class="_navLink2">
+                        <div class="_navLink2_Sub">
+                            <div class="fb_link"><a href="" class="facebookLink">FB</a></div>
+                            <div><a href="">Gmail</a></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </header>
+
+        <div class="newArticle">
+            <a href="/articles/new" type="button">New Article</a>
+        </div>
+
+        <!-- to get all articles we will be using for.each loop -->
+        <section class="article_section">
+            <% articles.forEach(article=>{ %>
+                <div id="articles" class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title font-poppins" class="article_title">
+                            <%= article.title %>
+                        </h5>
+                        <p class="text-secondary font-size-09">
+                            <%= article.description %>
+                        </p>
+                        <p>
+                            <%= article.createdAt.toLocaleDateString() %>
+                        </p>
+                        <a href="articles/<%=article.slug%>" id="showMore"
+                            class="btn btn-info font-size-09 text-light">Show More</a>
+                        <a href="articles/edit/<%=article.id%>" id="edit"
+                            class="btn btn-info font-size-09 text-light">Edit</a>
+                        <!-- we are including method-override so we are using _method=DELETE, now our method will  be override with /delete -->
+                        <form action="/articles/<%=article.id%>?_method=DELETE" method="POST">
+                            <button type="submit" id="delete"
+                                class="btn btn-danger font-size-09 text-light">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <% }) %>
+        </section>
+    </body>
+
+</html>
