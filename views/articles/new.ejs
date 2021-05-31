@@ -4,15 +4,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
+        <title>New Article</title>
     </head>
 
     <body>
-        <h1>This is HTML New Article Page</h1>
-        <form action="/articles" method="POST">
-            <!-- we will be including _form_fields.ejs which contains only the input fields which are common for new & edit page -->
-            <%- include('_form_fields')%>
-        </form>
+        <!-- Below line is to include _header.ejs file which is common for all pages -->
+        <%- include('_header') %>
+            <h1>This is HTML New Article Page</h1>
+            <form action="/articles" method="POST">
+                <!-- we will be including _form_fields.ejs which contains only the input fields which are common for new & edit page -->
+                <%- include('_form_fields')%>
+            </form>
     </body>
 
 </html>

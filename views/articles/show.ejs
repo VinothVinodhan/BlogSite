@@ -4,32 +4,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog Show</title>
+        <title>View Blog</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
     </head>
 
     <body>
-        <h1>
-            <%= article.title %>
-        </h1>
-        <div class="newArticles">
-            <p>Description is:
-                <%= article.description %>
-            </p>
-            <p>Date is:
-                <%= article.createdAt.toLocaleDateString() %>
-            </p>
-        </div>
-        <div class="markdown">
-            <p>Markdown is:
-                <%= article.sanitizedHtml%>
-            </p>
+        <!-- Below line is to include _header.ejs file which is common for all pages -->
+        <%- include('_header') %>
+            <h1>
+                <%= article.title %>
+            </h1>
+            <div class="newArticles">
+                <p>Description is:
+                    <%= article.description %>
+                </p>
+                <p>Date is:
+                    <%= article.createdAt.toLocaleDateString() %>
+                </p>
+            </div>
+            <div class="markdown">
+                <p>Markdown is:
+                    <%= article.sanitizedHtml%>
+                </p>
 
-        </div>
-        <!-- All articles page is index -->
-        <a href="/">All Article</a>
-        <a href="/articles/edit/<%=article.id%>">Edit Article</a>
+            </div>
+            <!-- All articles page is index -->
+            <a href="/">All Article</a>
+            <a href="/articles/edit/<%=article.id%>">Edit Article</a>
     </body>
 
 </html>

@@ -103,6 +103,7 @@ a{
 .empty1{
     flex-grow: 1;
     display: flex;
+    justify-content: center;
 }
 .empty2{
     flex-grow: 1;
@@ -179,4 +180,10 @@ a{
 
 .row{
     margin: 1px;
+}
+.form-group{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: stretch;
 }
