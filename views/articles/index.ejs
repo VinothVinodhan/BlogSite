@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
 
     <body class="body">
@@ -53,7 +53,7 @@
             <!-- to get all articles we will be using for.each loop -->
             <section class="article_section">
                 <% articles.forEach(article=>{ %>
-                    <div id="articles" class="card shadow">
+                    <div id="articleCard" class="card shadow">
                         <div class="card-body">
                             <h5 class="card-title font-poppins" class="article_title">
                                 <%= article.title %>
@@ -62,22 +62,23 @@
                                 <%= article.description %>
 
                             </p>
-                            <p><span style="font-weight: bold ;">Created On:</span>
+                            <p><span class="articleCreated">Created On:</span>
                                 <%= article.createdAt.toLocaleDateString() %>
                             </p>
-                            <a href="articles/<%=article.slug%>" id="showMore"
-                                class="btn btn-info font-size-09 text-light">Show More</a>
-                            <a href="articles/edit/<%=article.id%>" id="edit"
-                                class="btn btn-info font-size-09 text-light">Edit</a>
-                            <!-- we are including method-override so we are using _method=DELETE, now our method will  be override with /delete -->
-                            <form action="/articles/<%=article.id%>?_method=DELETE" method="POST">
-                                <button type="submit" id="delete"
-                                    class="btn btn-danger font-size-09 text-light">Delete</button>
-                            </form>
+                            <div class="cardLinks">
+                                <a href="articles/<%=article.slug%>" id="articleReadMore">Read More...</a>
+                                <a href="articles/edit/<%=article.id%>" id="articleEdit">Edit</a>
+                                <!-- we are including method-override so we are using _method=DELETE, now our method will  be override with /delete -->
+                                <form action="/articles/<%=article.id%>?_method=DELETE" method="POST">
+                                    <button type="submit" id="deleteArticleBtn">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <% }) %>
             </section>
+
+            <footer></footer>
     </body>
 
 </html>

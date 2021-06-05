@@ -47,6 +47,20 @@ app.get('/', async (req, res) => {
 // every page like edit, view will be /articles/edit, /articles/view, hence app.use we are passing /articles
 app.use('/articles', articleRouter)
 
+app.post('/do-comment', (req, res) => {
+    Article.collection("articles").update({ "_id": ObjectId(req.params.id) }, {
+        $push: {
+            "comments": {
+                username: req.body.username,
+                comment: req.body.comment
+            }
+        }
+    }, function (error, post) {
+        res.send("Comment added..!")
+    }
+    )
+})
+
 app.listen(5000, () => {
     console.log(`Server is started on http://localhost:5000`)
 })

@@ -7,32 +7,96 @@
         <title>View Blog</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/show.css">
     </head>
 
     <body>
+
+
         <!-- Below line is to include _header.ejs file which is common for all pages -->
         <%- include('_header') %>
-            <h1>
-                <%= article.title %>
-            </h1>
-            <div class="newArticles">
-                <p>Description is:
-                    <%= article.description %>
-                </p>
-                <p>Date is:
-                    <%= article.createdAt.toLocaleDateString() %>
-                </p>
-            </div>
-            <div class="markdown">
-                <p>Markdown is:
-                    <%= article.sanitizedHtml%>
-                </p>
-
-            </div>
             <!-- All articles page is index -->
-            <a href="/">All Article</a>
-            <a href="/articles/edit/<%=article.id%>">Edit Article</a>
+            <div class="show_root">
+                <div class="nav_link">
+                    <div id="_1_navLink">
+                        <div>
+                            <a href="/">All Article</a>
+                        </div>
+                        <div>
+                            <a href="/articles/edit/<%=article.id%>">Edit Article</a>
+                        </div>
+                    </div>
+                </div>
+
+                <article class="showArticlePage">
+                    <div id="_1">
+                        <div class="date">
+                            <p>Created on:
+                                <%= article.createdAt.toLocaleDateString() %>
+                            </p>
+                        </div>
+                        <div class="title">
+
+                            <h1 class="articleTitle">
+                                <%= article.title %>
+                            </h1>
+                        </div>
+                        <div class="summary">
+                            <p>Summary is: <%= article.summary%>
+                            </p>
+                        </div>
+                        <div class="description">
+                            <p>Description is:
+                                <%= article.description %>
+                            </p>
+                        </div>
+
+                        <div class="markdown">
+                            <p>Markdown is:<%= article.sanitizedHtml%>
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+                <div class="articleComment">
+                    <form method="POST" onsubmit="doComment(this);">
+                        <input type="hidden" name="post_id" value="<%= article._id%>">
+                        <label for="commentLabel" id="commentTitle">Comments</label>
+                        <br>
+                        <hr>
+                        <div class="commentInputSec">
+                            <input class="form-control" type="text" name="username" placeholder="username" required>
+                            <textarea class="form-control" name="comment" placeholder="Write a comment..."
+                                onfocus="this.placeholder=''" id="commentLabel" cols="100" rows="0" required></textarea>
+                        </div>
+                        <div class="commentSubmitBtn">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                function doComment(form) {
+                    console.log("Hello Hello")
+                    $.ajax({
+                        url: "/do-comment",
+                        method: "POST",
+                        data: {
+                            username: form.username.value,
+                            comment: form.comment.value,
+                            post_id: form.post_id.value
+                        },
+                        success: function (response) {
+                            alert("Hello")
+                        }
+                    });
+                    console.log("Hello ajax")
+                    return false;
+                }
+                console.log("Hello console")
+            </script>
     </body>
 
 </html>

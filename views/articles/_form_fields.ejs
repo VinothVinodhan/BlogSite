@@ -2,6 +2,10 @@
     <label for="title">Title</label>
     <input required value="<%= article.title%>" type="text" name="title" id="title">
 </div>
+<div class="summary">
+    <label for="summary">Summary</label>
+    <textarea type="text" name="summary" id="summary"><%= article.summary%></textarea>
+</div>
 <div class="description">
     <label for="description">Description</label>
     <textarea name="description" id="description"><%= article.description%></textarea>
